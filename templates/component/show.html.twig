@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Component{% endblock %}
+
+{% block body %}
+    <h1>Component</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ component.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ component.name }}</td>
+            </tr>
+            <tr>
+                <th>Link</th>
+                <td>{{ component.link }}</td>
+            </tr>
+            <tr>
+                <th>Format</th>
+                <td>{{ component.format }}</td>
+            </tr>
+            <tr>
+                <th>Size</th>
+                <td>{{ component.size }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ component.text }}</td>
+            </tr>
+            <tr>
+                <th>X_axis</th>
+                <td>{{ component.xAxis }}</td>
+            </tr>
+            <tr>
+                <th>Y_axis</th>
+                <td>{{ component.yAxis }}</td>
+            </tr>
+            <tr>
+                <th>Z_axis</th>
+                <td>{{ component.zAxis }}</td>
+            </tr>
+            <tr>
+                <th>Width</th>
+                <td>{{ component.width }}</td>
+            </tr>
+            <tr>
+                <th>Height</th>
+                <td>{{ component.height }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ component.createdAt ? component.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('component_index') }}">back to list</a>
+
+    <a href="{{ path('component_edit', {'id': component.id}) }}">edit</a>
+
+    {{ include('component/_delete_form.html.twig') }}
+{% endblock %}

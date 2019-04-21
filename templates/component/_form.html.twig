@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+    {# {{ form_widget(form) }} #}
+    {{ form_row(form.ad) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.type) }}
+    {{ form_row(form.text, {'required': false, 'attr': {'class': 'choice_type cont-char'}}) }}
+    {{ form_row(form.link, {'required': false, 'attr': {'class': 'choice_type'}}) }}
+    {{ form_row(form.size, {'required': false, 'attr': {'class': 'choice_type'}}) }}
+    {{ form_row(form.format, {'required': false, 'attr': {'class': 'choice_type'}}) }}
+    {{ form_row(form.x_axis) }}
+    {{ form_row(form.y_axis) }}
+    {{ form_row(form.z_axis) }}
+    {{ form_row(form.width) }}
+    {{ form_row(form.height) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

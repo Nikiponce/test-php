@@ -1,0 +1,18 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{form_row(form.name)}}
+    {# {{form_row(form.status)}} #}
+
+    {# <hr />
+    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addComponent">
+    Add component
+    </button>
+    {{ include('component/_modal_form.html.twig') }}
+    <hr /> #}
+
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+
+    
+{{ form_end(form) }}
+
+

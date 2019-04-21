@@ -1,0 +1,83 @@
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="btn btn-success">Add to ad</div>
+            <select class="form-control d-inline-block" id="form_components">
+                {% for component in components %}
+                        <option value></option>
+                        <option value="{{component.id}}">{{ component.name }} - {{ component.type.name }}</options>
+                {% else %}
+                    <option value>no records found</options>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+
+    {# {% for component in ad_components %}
+            <tr>
+                <td>{{ component.id }}</td>
+                <td>{{ component.name }}</td>
+                <td>{{ component.type.name }}</td>
+                <td>{{ component.link }}</td>
+                <td>{{ component.format }}</td>
+                <td>{{ component.size }}</td>
+                <td>{{ component.text }}</td>
+                <td>{{ component.xAxis }}</td>
+                <td>{{ component.yAxis }}</td>
+                <td>{{ component.zAxis }}</td>
+                <td>{{ component.width }}</td>
+                <td>{{ component.height }}</td>
+                <td><small>{{ component.createdAt ? component.createdAt|date('Y-m-d H:i:s') : '' }}</small></td>
+                <td>
+                    <a href="{{ path('component_show', {'id': component.id}) }}" class="btn btn-primary btn-sm">pick</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %} #}
+
+
+<!-- The Modal -->
+<div class="modal" id="addComponent">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Select Component</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+
+        {{ form_start(form_component) }}
+            {# {{ form_widget(form_component) }} #}
+            {{ form_row(form_component.name) }}
+            {{ form_row(form_component.type) }}
+            {{ form_row(form_component.text, {'required': false, 'attr': {'class': 'choice_type'}}) }}
+            {{ form_row(form_component.link, {'required': false, 'attr': {'class': 'choice_type'}}) }}
+            {{ form_row(form_component.size, {'required': false, 'attr': {'class': 'choice_type'}}) }}
+            {{ form_row(form_component.format, {'required': false, 'attr': {'class': 'choice_type'}}) }}
+            {{ form_row(form_component.x_axis) }}
+            {{ form_row(form_component.y_axis) }}
+            {{ form_row(form_component.z_axis) }}
+            {{ form_row(form_component.width) }}
+            {{ form_row(form_component.height) }}
+            <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+        {{ form_end(form_component) }}
+
+        
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>

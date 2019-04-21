@@ -1,0 +1,48 @@
+<h1>Component index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ad Name</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Link</th>
+            <th>Format</th>
+            <th>Size</th>
+            <th>Text</th>
+            <th>X/Y/Z Axis</th>
+            <th>Width/Height</th>
+            <th>Created_at</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for component in components %}
+        <tr>
+            <td>{{ component.id }}</td>
+            <td>{{ component.ad}}</td>
+            <td>{{ component.name }}</td>
+            <td>{{ component.type.name }}</td>
+            <td>{% if (component.link != '')  %}<a href="{{ component.link }}" target="_blank">link</a>{% endif %}</td>
+            <td>{{ component.format }}</td>
+            <td>{{ component.size }}</td>
+            <td>{{ component.text }}</td>
+            <td>{{ component.xAxis }}/{{ component.yAxis }}/{{ component.zAxis }}</td>
+            <td>{{ component.width }}/{{ component.height }}</td>
+            <td align="center"><small>{{ component.createdAt ? component.createdAt|date('Y-m-d H:i:s') : '' }}</small></td>
+            <td>
+                {# <a href="{{ path('component_show', {'id': component.id}) }}" class="btn btn-primary btn-sm">show</a> #}
+                <a href="{{ path('component_edit', {'id': component.id}) }}" class="btn btn-primary btn-sm my-1">edit</a>
+                <a href="{{ path('component_front', {'id': component.id}) }}" target="_blank" class="btn btn-primary btn-sm my-1">JSON</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="13">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('component_new') }}">Create new</a>

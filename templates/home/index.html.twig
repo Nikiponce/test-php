@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<p>
+SunMedia es una empresa de publicidad en vídeo y branding que aporta soluciones tecnológicas
+tanto a medios (publishers) como anunciantes (advertisers). Por lo tanto, el modelo de negocio de la
+empresa se apoya en la gestión de publishers y advertisers, así como los anuncios (creatives) que
+los advertisers crean y los publishers muestran en sus páginas web.
+</p>
+<p>
+Para ello, contamos con varias plataformas activas y nos gustaría saber cómo plantearías una de
+ellas. Hemos elegido ver cómo te desenvuelves gestionando campañas de publicidad. A
+continuación, te detallamos un poco más qué partes componen un anuncio y qué supone su gestión.
+Debes realizar un pequeño desarrollo que permita gestionar anuncios, esto implica la creación de
+varios servicios que permitan crear y publicar un anuncio.
+</p>
+<p>
+Un anuncio está compuesto por una colección de componentes. Estos componentes, por el
+momento, queremos que sean del tipo imagen, vídeo o texto; pero en el futuro nos gustaría poder
+aumentar este listado. Cada tipo de componente tiene sus peculiaridades: un componente imagen
+consta de un enlace a una imagen externa, un formato y un peso; lo mismo pasa con el componente
+de tipo vídeo; por otro lado, un componente texto constará de una cadena de texto. Además, todos
+ellos comparten unas características: un nombre, una posición en los 3 ejes (x, y, z), un ancho y un
+alto.
+</p>
+En esta prueba valoramos las aptitudes de back, por lo tanto, no es necesaria una parte visual de la
+aplicación. Solo buscamos ver cómo te manejas con el modelado y la interacción con las entidades.
+<br />
+A tener en cuenta:
+    <ul>
+    <li>Hay 3 estados posibles en un anuncio: published, stopped, publishing.</li>
+    <li>Un anuncio solo se puede publicar si su estado es stopped.</li>
+    <li>Al crear un anuncio todos sus componentes deben ser válidos.</li>
+    <li>Solo permitimos imágenes con el formato JPG y PNG.</li>
+    <li>Un vídeo solo será válido si está en formato MP4 y WEBM.</li>
+    <li>El texto no puede sobrepasar los 140 caracteres.</li>
+    <li>Todo componente se debe serializar en formato JSON para poder comunicarnos con la aplicación de front.</li>
+    </ul>
+
+Entrega:
+Para la realización de la prueba hemos creado un esqueleto, que se encuentra en GitHub, que servirá
+como punto de partida. Es un proyecto de Symfony 4, pero si no conoces el framework o prefieres
+utilizar otro no hay ningún tipo de problema. Finalmente, la entrega podrá ser a través de un
+repositorio como GitHub o como un adjunto en el correo.
+{% endblock %}
